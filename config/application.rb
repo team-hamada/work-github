@@ -18,5 +18,9 @@ module WorkGithub
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    config.hosts << "ee13e699dbed46859b5f0dae8afc8693.vfs.cloud9.us-east-1.amazonaws.com"
+    
   end
 end
+
