@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  root :to =>"public/homes#top"
+  # root :to =>"public/homes#top" 変更前
+  root to: "public/homes#top" 
   get "about"=>"public/homes#about"
 
   get 'items' => 'public/items#index'
