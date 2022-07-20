@@ -1,2 +1,22 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<!-- 反映確認用サンプルデータ -->
+<% x = [1,2,3,4,5,6,7,8,9] %>
+<% y = "ケーキ" %>
+
+
+
+<div class="container mt-5">
+  <h1 class="form-check-inline"><strong><%= y %>一覧</strong></h1>
+  <h4 class="form-check-inline">(全<%= x.count %>件)</h4>
+  <div class="row g-2">
+    
+    <% x.each do |f| %>
+      <div class="col-3 mt-4 flex-column">
+        <div class="pb-2">【画像】</div>
+        <div class="pb-2">商品名</div>
+        <div class="pb-2">¥0,000</div>
+        <!--<div class="p-3 border bg-light">Custom column padding</div>-->
+      </div>
+    <% end %>
+    
+  </div>
+</div>
