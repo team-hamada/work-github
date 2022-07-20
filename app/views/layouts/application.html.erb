@@ -6,9 +6,44 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  <header>
+    <div >
+      <ul >
+          <% if customer_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "マイページ", customers_my_page_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "商品一覧", items_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "カート", cart_items_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to "About", about_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "商品一覧", items_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_customer_registration_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_customer_session_path %>
+            </li>
+            <% end %>
+          </ul>
+      </div>
+    
+  </header>
 
   <body>
     <%= yield %>
