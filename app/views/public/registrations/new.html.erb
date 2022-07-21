@@ -1,5 +1,6 @@
 <h2>Sign up</h2>
 
+
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
 
 <div class="field">
@@ -37,6 +38,7 @@
   <div class="field">
       パスワード（確認用）
     　　　　　<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
   </div>
 
   <div class="actions">
@@ -44,5 +46,7 @@
   </div>
 <% end %>
 
+
 <h3>既に登録済みの方</h3>
 <p><%= link_to("こちら", "/customers/sign_in") %>からログインしてください。</p>
+
