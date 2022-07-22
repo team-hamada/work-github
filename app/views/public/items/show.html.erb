@@ -1,2 +1,24 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container mt-5">
+  
+  <div class="d-inline-block" >
+    <h1>【画像】</h1>
+  </div>
+
+  <div class="d-inline-block" >
+    <h2><strong>商品名・・・・・・・・・・</strong></h2>
+    <p>説明文・・・・・・・・・・</p>
+    <div>
+      <div class="d-inline-block mt-5" ><h3>¥0,000</h3></div><span>（税込）</span>
+    </div>
+    <select class="form-select m-3" aria-label="Default select example">
+      <option selected>個数選択</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <%= link_to items_path do %>
+      <button type="button" class="btn btn-success m-3">カートに入れる</button>
+    <% end %>
+  </div>
+  
+</div>
