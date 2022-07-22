@@ -1,11 +1,10 @@
 <h2>会員情報編集</h2>
+<%= form_with model: @customer do |f| %>
+氏名 <%= f.text_field :last_name %><%= f.text_field :first_name %>
+フリガナ <%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %>
+郵便番号 <%= f.text_field :postal_code %>
+住所 <%= f.text_field :address %>
+電話番号 <%= f.text_field :telephone_number %>
+メールアドレス <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
 
-氏名
-カナ
-郵便番号
-住所
-電話番号
-メールアドレス
-
-<strong>配送先</strong>
-<strong>注文履歴</strong>
+<%= f.submit '編集内容を保存' %> <%= f.submit '退会' %>
