@@ -1,2 +1,50 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<div class="container mt-5">
+  
+  <!-- テーブル上-->
+  <div class="row mb-3">
+    <div class="col-md-4 h3">ショッピング</div>
+    <button type="button" class="btn btn-danger col-md-2 offset-md-6">カートを空にする</button>
+  </div>
+  
+  <!-- テーブル-->
+  <div class="row">
+    <table class="table table-bordered">
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>【商品名】</td>
+        <td>¥0,000</td>
+        <td>
+          <button type="button" class="btn btn-success">変更</button>
+        </td>
+        <td>¥0,000</td>
+        <td><button type="button" class="btn btn-danger justify-content-center">削除する</button></td>
+      </tr>
+    </table>
+  </div>
+  
+  <!--テーブル下１段目 -->
+  <div class="row">
+    <button type="button" class="btn btn-primary mt-2 col-md-2 align-self-start">買い物を続ける</button>
+    <table class="table table-bordered col-md-4 offset-md-6">
+      <th>合計金額</th>
+      <th>¥0,000</th>
+    </table>
+  </div>
+  
+  <!--テーブル下２段目 -->
+  <div class="row">
+    <button type="button" class="btn btn-success d-flex justify-content-center">Success</button>
+  </div>
+  
+</div>
+
+
+
+<!-- レイアウト参考サイト_BootStrap -->
+<!-- https://getbootstrap.jp/docs/5.0/layout/columns/ -->
