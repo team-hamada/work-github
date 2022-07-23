@@ -62,3 +62,5 @@ gem 'devise'
 
 # (マコト)ページネーション用... 7/21
 gem 'kaminari','~> 1.2.1'
+
+gem "enum_help"
