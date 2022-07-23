@@ -9,37 +9,47 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  root :to =>"public/homes#top"
-  get "about"=>"public/homes#about"
 
-  get 'items' => 'public/items#index'
-  get 'items/:id' => 'public/items#show'
 
-  get 'customers/my_page' => 'public/customers#show'
-  get 'customers/information/edit' => 'public/customers#edit'
-  patch 'customers/information' => 'public/customers#update'
-  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
-  patch 'customers/withdraw' => 'public/customers#withdraw'
+  # get 'items' => 'public/items#index'
+  # get 'items/:id' => 'public/items#show'
 
-  get 'cart_items' => 'public/cart_items#index'
-  patch 'cart_items/:id' => 'public/cart_items#update'
-  delete 'cart_items/:id' => 'public/cart_items#destroy'
-  delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
-  post 'cart_items' => 'public/cart_items#create'
 
-  get 'orders/new' => 'public/orders#new'
-  post 'orders/comfirm' => 'public/orders#comfirm'
-  get 'orders/complete' => 'public/orders#complete'
-  post 'orders' => 'public/orders#create'
-  get 'orders' => 'public/orders#index'
-  get 'orders/:id' => 'public/orders#show'
 
-  get 'addresses' => 'public/addresses#index'
-  get 'addresses/:id/edit' => 'public/addresses#edit'
-  post 'addresses' => 'public/addresses#create'
-  patch 'addresses/:id' => 'public/addresses#update'
-  delete 'addresses/:id' => 'public/addresses#destroy'
+  # get 'cart_items' => 'public/cart_items#index'
+  # patch 'cart_items/:id' => 'public/cart_items#update'
 
+
+  # post 'cart_items' => 'public/cart_items#create'
+
+  #get 'orders/new' => 'public/orders#new'
+
+  #get 'orders/complete' => 'public/orders#complete'
+  #post 'orders' => 'public/orders#create'
+  #get 'orders' => 'public/orders#index'
+  #get 'orders/:id' => 'public/orders#show'
+
+  # get 'addresses/:id/edit' => 'public/addresses#edit'
+  # get 'addresses' => 'public/addresses#index'
+  # post 'addresses' => 'public/addresses#create'
+  # patch 'addresses/:id' => 'public/addresses#update'
+  # delete 'addresses/:id' => 'public/addresses#destroy'
+
+  scope module: :public do
+    root :to =>"homes#top"
+    get "about"=>"homes#about"
+    resources :addresses, only:[:index, :edit, :create, :destroy, :update]
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
+    resources :itemes, only:[:index, :show]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only:[:index, :update, :destroy, :create]
+    post 'orders/comfirm' => 'orders#comfirm'
+    resources :orders, only:[:new, :complete, :create, :index, :show]
+  end
 
   namespace :admin do
     get ""=>"homes#top"
