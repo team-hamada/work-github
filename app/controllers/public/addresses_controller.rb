@@ -5,7 +5,7 @@ class Public::AddressesController < ApplicationController
   end
 
   def edit
-    @addresses = Address.find(params[:id])
+    @address = Address.find(params[:id])
   end
 
   def create
@@ -19,15 +19,15 @@ class Public::AddressesController < ApplicationController
   end
 
   def update
-    address = Address.find(params[:id])
-    address.update(address_params)
+    @address = Address.find(params[:id])
+    @address.update(address_params)
     redirect_to addresses_path
   end
 
   def destroy
-    address = Address.find(params[:id])
-    address.destroy
-    redirect_to address_path
+    @address = Address.find(params[:id])
+    @address.destroy
+    redirect_to addresses_path
   end
 
   private

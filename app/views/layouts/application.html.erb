@@ -9,7 +9,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
+
   <header class="sticky-top">
     <div class="border-bottom">
     <div class="navbar navbar-expand-md navbar-dark bg-white">
@@ -26,7 +26,7 @@
               <%= link_to "マイページ", customers_my_page_path, class: 'nav-link text-dark border' %>
             </li>
             <li class="nav-item" style="padding:10px;">
-              <%= link_to "商品一覧", items_path, class: 'nav-link text-dark border' %>
+              <%= link_to "商品一覧", itemes_path, class: 'nav-link text-dark border' %>
             </li>
             <li class="nav-item" style="padding:10px;">
               <%= link_to "カート", cart_items_path, class: 'nav-link text-dark border' %>
@@ -55,7 +55,7 @@
               <%= link_to "About", about_path, class: 'nav-link text-dark border' %>
             </li>
             <li class="nav-item" style="padding:10px;">
-              <%= link_to "商品一覧", items_path, class: 'nav-link text-dark border' %>
+              <%= link_to "商品一覧", itemes_path, class: 'nav-link text-dark border' %>
             </li>
             <li class="nav-item" style="padding:10px;">
               <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark border' %>
