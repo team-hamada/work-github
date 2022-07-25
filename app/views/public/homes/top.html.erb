@@ -1,16 +1,25 @@
 <div class="container mt-5">
    <div class="row">
-     <p class=".col-lg-8">ようこそ、ながのCAKEへ！<br>
+      <div style="width: 600px; height: 400px; background-image: url(<%= asset_path "top_pic.jpg" %>);">
+         <span style="text-align: left; vertical-align: middle;">ようこそ、ながのCAKEへ！<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。</p>
+        購入には会員登録が必要になります。</span>
+      </div>
    </div>
 
    <div class="row">
      <h4 class=".col-lg-8">新着商品</h4>
    </div>
-   <p>写真</p>
-   <p>商品名</p>
-   <p>￥0，000</p>
+   <% @items.each do |item| %>
+      <tr>
+         <td><%= attachment_image_tag item, fallback: "top_pic.jpg"%></td>
+      </tr>
+      <tr>
+         <td><%= item.name %></td>
+      </tr>
+      <tr>
+         <td><%= item.price %></td>
+      </tr>
+   <% end %>
 </div>
-
