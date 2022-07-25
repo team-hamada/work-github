@@ -1,11 +1,9 @@
-<div class="grid">
-  <% items.each do |item| %>
+<% items.each do |item| %>
+  <div class="col-3 mt-4 flex-column">
     <%= link_to item_path(item) do %>
-      <div>
-        <%= image_tag item.get_image(100,100) %><br>
-        <%= item.name %><br>
-        <%= item.tax_include_price.to_s(:delimited) %>円
-      </div>
+      <div class="pb-2"><%= image_tag item.get_image(100,100) %></div>
+      <div class="pb-2"><%= item.name %></div>
+      <div class="pb-2"><%= item.tax_include_price.to_s(:delimited) %>円</div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
