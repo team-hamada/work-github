@@ -37,7 +37,6 @@
      <div for="inputEmail3" class="col-sm-2 col-form-label">メールアドレス</div>
      <label><%= f.email_field :email, autofocus: true, autocomplete: "email" %></label>
  </div>
- <%= f.submit '編集を保存', class: "btn btn-success" %> <%= f.submit '退会', class: "btn btn-danger" %>
-
+  <%= f.submit '編集内容を保存', class: "btn btn-success" %><%= link_to '退会', customers_unsubscribe_path, class: "btn btn-danger" %>
  <% end %>
 </div>
