@@ -1,2 +1,58 @@
-<h1>Public::Orders#comfirm</h1>
-<p>Find me in app/views/public/orders/comfirm.html.erb</p>
+<div class="container">
+    <h2>注文情報確認</h2>
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>商品名</th>
+                        <th>単価（税込）</th>
+                        <th>数量</th>
+                        <th>小計</th>
+                    </tr>
+                </thead>
+                <% @cart_items.each do |cart| %>
+                <tbody>
+                    <tr>
+                        <td><%= cart.item.name %></td>
+                        <td><%= (cart.item.price).to_s(:delimited) %></td>
+                        <td><%= cart.quantity %></td>
+                        <td><%= (cart.item.price*cart.quantity).to_s(:delimited) %></td>
+                    </tr>
+                </tbody>
+                <% end %>
+            </table>
+        </div>
+        <div class="col">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>送料</th>
+                        <th>商品合計</th>
+                        <th>請求金額</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>800</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <strong>支払い方法</strong>
+        <div class="col">
+            <%= @order.payment_method_i18n %>
+        </div>
+    </div>
+    <div class="row">
+        <strong>お届け先</strong>
+        <div class="col">
+            〒<%= @order.postal_code %>　<%= @order.address %>　<%= @order.name %>
+        </div>
+    </div>
+</div>
+
