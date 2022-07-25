@@ -1,27 +1,27 @@
-<div class="container mt-5">
+<!--<div class="container mt-5">-->
   
-  <div class="d-inline-block" >
-    <h1>【画像】</h1>
-  </div>
+<!--  <div class="d-inline-block" >-->
+<!--    <h1>【画像】</h1>-->
+<!--  </div>-->
 
-  <div class="d-inline-block" >
-    <h2><strong>商品名・・・・・・・・・・</strong></h2>
-    <p>説明文・・・・・・・・・・</p>
-    <div>
-      <div class="d-inline-block mt-5" ><h3>¥0,000</h3></div><span>（税込）</span>
-    </div>
-    <select class="form-select m-3" aria-label="Default select example">
-      <option selected>個数選択</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
-    <%= link_to items_path do %>
-      <button type="button" class="btn btn-success m-3">カートに入れる</button>
-    <% end %>
-  </div>
+<!--  <div class="d-inline-block" >-->
+<!--    <h2><strong>商品名・・・・・・・・・・</strong></h2>-->
+<!--    <p>説明文・・・・・・・・・・</p>-->
+<!--    <div>-->
+<!--      <div class="d-inline-block mt-5" ><h3>¥0,000</h3></div><span>（税込）</span>-->
+<!--    </div>-->
+<!--    <select class="form-select m-3" aria-label="Default select example">-->
+<!--      <option selected>個数選択</option>-->
+<!--      <option value="1">1</option>-->
+<!--      <option value="2">2</option>-->
+<!--      <option value="3">3</option>-->
+<!--    </select>-->
+<!--    <%#= link_to items_path do %>-->
+<!--      <button type="button" class="btn btn-success m-3">カートに入れる</button>-->
+<!--    <%# end %>-->
+<!--  </div>-->
   
-</div>
+<!--</div>-->
 
 
 
@@ -35,12 +35,11 @@
           <h2><%= @item.name %></h2>
           <h3><%= @item.introduction %></h3>
           <p>￥<%= @item.tax_include_price.to_s(:delimited) %>(税込)</p>
-          <%#= form_with model: [:public, CartItem.new] do |f| %>
-          <%#= form_with model: , url:  do |f| %>
-             <%#= f.hidden_field :item_id, :value  => @item.id %>
-            <%#= f.select :amount ,*[1..10],include_blank: "個数選択" %>
-            <%#= f.submit "カートに入れる", class: "btn btn-success ml-5" %>
-          <%# end %>
+          <%= form_with model: @cart_item, url: cart_items_path, method: :post  do |f| %>
+            <%= f.hidden_field :item_id, :value  => @item.id %>
+            <%= f.select :amount ,*[1..10],include_blank: "個数選択" %>
+            <%= f.submit "カートに入れる", class: "btn btn-success ml-5" %>
+          <% end %>
       </div>
 
     </div>
