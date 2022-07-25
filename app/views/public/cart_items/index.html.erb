@@ -72,21 +72,21 @@
           <td colspan="3"><%= image_tag item.item.get_image(50,50) %><%= item.item.name %></td>
           <td><%= item.tax_include_price %></td>
             <td>
-            <%= form_with model: [:public, item], url: public_cart_item_path(item.id), method: :patch do |f| %>
+            <%= form_with model: [:public, item], url: cart_item_path(item.id), method: :patch do |f| %>
               <%= f.hidden_field :item_id, :value  => item.id %>
               <%= f.select :amount ,*[1..10] %>
               <%= f.submit "変更", class:"btn btn-success w-auto" %>
             <%end%>
             </td>
           <td><%= item.subtotal %></td>
-          <td><%= link_to "削除する",public_cart_item_path(item), method: :delete, class: "btn btn-danger" %></td>
+          <td><%= link_to "削除する", cart_item_path(item), method: :delete, class: "btn btn-danger" %></td>
           <% @total += item.subtotal %>
           <% end %>
         </tr>
       </table>
 
     <span class="pt-5">
-      <%= link_to "買い物を続ける",root_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "買い物を続ける", items_path, class: "btn btn-primary btn-lg" %>
       <table class="total" align="right">
         <th height="50" class="table-light">合計金額</th>
         <td><%=@total.to_s(:delimited) %></td>
