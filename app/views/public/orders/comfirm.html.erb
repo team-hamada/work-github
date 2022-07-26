@@ -15,11 +15,11 @@
                 <% @cart_items.each do |cart| %>
                 <tbody>
                     <tr>
-                        <td><%= cart.item.name %></td>
-                        <td><%= (cart.item.price).to_s(:delimited) %></td>
-                        <td><%= cart.quantity %></td>
-                        <td><%= (cart.item.price*cart.quantity).to_s(:delimited) %></td>
-                        <% @total += cart.item.price*cart.quantity %>
+                        <td><%= image_tag cart.item.get_image(50,50) %><%= cart.item.name %></td>
+                        <td><%= (cart.item.tax_include_price).to_s(:delimited) %>円</td>
+                        <td><%= cart.amount %></td>
+                        <td><%= (cart.item.tax_include_price*cart.amount).to_s(:delimited) %>円</td>
+                        <% @total += cart.item.tax_include_price*cart.amount %>
                     </tr>
                 </tbody>
                 <% end %>
@@ -36,9 +36,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>800</td>
-                        <td><%= @total %></td>
-                        <td><%= @total + 800 %></td>
+                        <td>800円</td>
+                        <td><%= @total %>円</td>
+                        <td><%= @total + 800 %>円</td>
                     </tr>
                 </tbody>
             </table>
