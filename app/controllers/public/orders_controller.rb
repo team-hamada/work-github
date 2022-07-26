@@ -27,11 +27,11 @@ class Public::OrdersController < ApplicationController
     cart_items = current_customer.cart_items.all
      if @order.save!
         cart_items.each do |cart|
-          order_details = OrderItem.new
+          order_details = OrderDetail.new
           order_details.item_id = cart.item_id
           order_details.order_id = @order.id
-          order_details.order_amount = cart.amount
-          order_details.order_price = cart.item.price
+          order_details.amount = cart.amount
+          order_details.price = cart.item.tax_include_price
           order_details.save
         end
         redirect_to orders_complete_path
@@ -43,9 +43,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @order=Order.where(customer_id: current_customer.id)
+    @item=OrderDetail.all
   end
 
   def show
+    @order=Order.find(params[:id])
+    @item=OrderDetail.where(order_id:@order.id)
   end
   
   private
