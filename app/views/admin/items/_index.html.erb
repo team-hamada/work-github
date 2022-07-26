@@ -1,31 +1,32 @@
-<table class='table'>
-
-  <thead>
-    <tr>
-      <th nowrap>商品ID</th>
-      <th nowrap>商品名</th>
-      <th nowrap>税抜価格</th>
-      <th nowrap>ジャンル</th>
-      <th nowrap >ステータス</th>
-    </tr>
-  </thead>
+<div class="col-8">
   
-  <tbody>
-    <% @items.each do |item| %>
+  <table class='table table-striped'>
+    <thead>
       <tr>
-        <td><%= item.id  %></td>
-        <td nowrap><u><%= link_to item.name ,admin_item_path(item.id), class: "text-dark"  %></u></td>
-        <td><%= item.price %></td>
-        <td nowrap><%= item.genre.name %></td>
-        <td nowrap>
-        <% if item.is_active == false %>
-            <span class="text-success"><strong>販売中</strong></span>
-        <% else %>
-            <span class="text-secondary"><strong>販売停止中</strong></span>
-        <% end %>
-        </td>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.id  %></td>
+          <td><u><%= link_to item.name ,admin_item_path(item.id), class: "text-dark"  %></u></td>
+          <td><%= item.price %></td>
+          <td><%= item.genre.name %></td>
+          <td>
+            <% if item.is_active == false %>
+              <span class="text-success"><strong>販売中</strong></span>
+            <% else %>
+              <span class="text-secondary"><strong>販売停止中</strong></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   
-</table>
+</div>
