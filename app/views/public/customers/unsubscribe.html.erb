@@ -6,6 +6,7 @@
       </div>
      </div>
  </div>
+
  <div class="row">
      <div class="col-md-10 col-md-offset-1">
       <div class="text-center">
@@ -13,10 +14,11 @@
       </div>
      </div>
  </div>
+
  <div class="col-md-10 col-md-offset-1">
       <div class="text-center">
-       <%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary" %>
-       <%= link_to "退会する", customers_withdraw_path, method: :patch, data: { confilm: "本当に退会しますか？"}, class: "btn btn-danger" %>
+       <%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary mr-2" %>
+       <%= link_to "退会する", customers_withdraw_path, method: :patch, class: "btn btn-danger" %>
       </div>
  </div>
 
