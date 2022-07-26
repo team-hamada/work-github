@@ -1,20 +1,17 @@
-<div class='container px-5 px-sm-0'>
+<div class='container mt-5'>
 
-  <div class='row'>
-    <div class= "pt-5 ml-4 col-md-2 col-sm-6" style="font-size: 20px;">
-      <span>商品一覧</span>
-    </div>
-    <div class= "pt-4 ml-auto col-md-3">
+  <div class='row mb-3'>
+    <div class="col-8 h1">商品一覧</div>
+    <div class="col-1 offset-3">
       <%= link_to new_admin_item_path do %>
-        <a class="btn btn-primary" href="/admin/items/new" role="button">＋</a>
+        <a class="btn btn-light btn-lg" href="/admin/items/new" role="button">＋</a>
       <% end %>
     </div>
   </div>
   
   <div class='row'>
-    <div class='pt-4 ml-3 col-md-2 col-sm-6'>
-      <%= render 'index', item: @item %>
-      <%= paginate @items %>
-    </div>
+    <%= render 'index', item: @item %>
+    <%= paginate @items %>
   </div>
+
 </div>
