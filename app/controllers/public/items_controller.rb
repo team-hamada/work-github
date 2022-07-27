@@ -9,13 +9,12 @@ class Public::ItemsController < ApplicationController
     @item=Item.find(params[:id])
     @cart_item = CartItem.new
   end
-
-  def search
-    @genre = Genre.find_by(name: params[:keyword])
-    items = @genre.items
-    @sale_items = items.where(sales_status: 0)
-    @items = @sale_items.page
-    render :index
+  
+  def index_by_genre
+    @sale_items = Item.where(is_active: 0)
+    @items = @sale_items.page(params[:page]).per(8)
+    @genre = Genre.find(params[:id])
+    @desserts = Item.new
   end
-
+  
 end

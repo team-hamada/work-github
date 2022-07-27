@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row">
+    
+    <div class="col-3 mr-3">
+      <%= render "admin/genres/index", genres: Genre.all %>
+    </div>
+  
+    <div class="col">
+      <div class="row">
+        <h1 class="form-check-inline"><%= @genre.name %>一覧</h1>
+        <!--<h4 class="form-check-inline">(全<%#= @sale_items.count %>件)</h4>-->
+      </div>
+    
+      <div class="row">    
+        <% @items.each do |item| %>
+          <% if @genre.id == item.genre_id %>
+            <%# @desserts += item %>
+            
+            <div class="col-3 mt-4 flex-column">
+              <%= link_to item_path(item) do %>
+                <div class="pb-2"><%= image_tag item.get_image(100,100) %></div>
+                <div class="pb-2"><%= item.name %></div>
+                <div class="pb-2"><%= item.tax_include_price.to_s(:delimited) %>円</div>
+              <% end %>
+            </div>
+            
+          <% end %>  
+        <% end %>
+        <%#= render "public/items/index", items: @desserts %>
+        <div class="mt-5">
+          <%= paginate @items %>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
