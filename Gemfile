@@ -42,9 +42,9 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
+
   gem 'pry-byebug'
-  
+
 end
 
 group :test do
@@ -67,3 +67,5 @@ gem "enum_help"
 
 # (マコト)
 gem 'image_processing'
+
+gem 'pry-rails'
