@@ -2,8 +2,7 @@
   <p class="border-bottom border-dark text-center">ジャンル検索</p>
 <% genres.each do |genre| %>
   <div class="pl-3 pb-2">
-    <%#= link_to genre.name, items_search_path(keyword: genre.name),class:"text-body" %>
-    <%= link_to genre.name, items_path %>
+    <%= link_to genre.name, index_by_genre_path(genre.id) %>
   </div>
 <% end %>
 </div>

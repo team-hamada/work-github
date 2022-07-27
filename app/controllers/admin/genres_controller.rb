@@ -27,15 +27,6 @@ class Admin::GenresController < ApplicationController
     end
   end
   
-  # ここ追加！けど意味わかっていない！
-  def search
-    @genre = Genre.find_by(name: params[:keyword])
-    items = @genre.items
-    @sale_items = items.where(sales_status: 0)
-    @items = @sale_items.page
-    render :index
-  end
-   
   private
 
   def genre_params
