@@ -1,24 +1,30 @@
-
-<h2>ログイン</h2>
-
-<h3>会員の方はこちらからログイン</h3>
-
-<%= form_with model: @customer, url: customer_session_path do |f| %>
-  <div class="field">
-    メールアドレス　　　<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+<div class="container">
+  <h2>ログイン</h2>
+  <div class="row">
+    <div class="p-1 mb-1 bg-light text_dark">
+     <h5>会員の方はこちらからログイン</h5>
+    </div>
   </div>
-
-  <div class="field">
-    パスワード　　　　　<%= f.password_field :password, autocomplete: "current-password" %>
+  <%= form_with model: @customer, url: customer_session_path do |f| %>
+    <div class="row">
+     <div for="inputEmail3" class="col-sm-2 col-form-label">メールアドレス</div>
+     <label><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %></label>
+    </div>
+    <div class="row">
+     <div for="inputEmail3" class="col-sm-2 col-form-label">パスワード</div>
+     <label><%= f.password_field :password, autocomplete: "current-password" %></label>
+    </div>
+    <div class="row">
+     <div for="inputEmail3" class="col-sm-2 col-form-label"></div>
+     <label><%= f.submit "Log in", class: "btn btn-success btn-lg" %></label>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="p-1 mb-1 bg-light text_dark">
+     <h5>会員登録がお済みでない方</h5>
+    </div>
   </div>
-
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="row">
+     <label><%= link_to("こちら", "/customers/sign_up") %>から新規登録を行なってください。</label>
   </div>
-<% end %>
-
-
-<h3>会員登録がお済みでない方</h3>
-<p><%= link_to("こちら", "/customers/sign_up") %>から新規登録を行なってください。</p>
-
+</div>
