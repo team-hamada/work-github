@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
+    get 'items/:id/index_by_genre' => 'items#index_by_genre', as: 'index_by_genre'
     resources :items, only:[:index, :show]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items, only:[:index, :update, :destroy, :create]
@@ -54,12 +55,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get ""=>"homes#top"
-
+    resources :order_details, only: [:update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
-    patch 'orders/:order_id/order_details/:id' => 'order_details#update'
 
   end
 
