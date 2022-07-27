@@ -18,7 +18,9 @@
    <table>
       <% @items.first(4).each do |item| %>
             <td>
-               <%= image_tag item.get_image(200,200)%><br>
+               <%= link_to  item_path(item.id) do %>
+                  <%= image_tag item.get_image(200,200)%>
+               <% end %><br>
                <%= item.name %><br>
                ￥<%= item.tax_include_price %>
             </td>

@@ -37,7 +37,7 @@
   
   <!--テーブル下１段目 -->
   <div class="row">
-    <%= link_to "買い物を続ける", items_path, class: "btn btn-primary mt-2 col-md-2 align-self-start" %>
+    <%= link_to "買い物を続ける", root_path, class: "btn btn-primary mt-2 col-md-2 align-self-start" %>
     <table class="table table-bordered col-md-4 offset-md-6">
       <th height="50" class="table-light">合計金額</th>
       <td><%=@total.to_s(:delimited) %></td>
